@@ -10,7 +10,7 @@ class LoginOptionScreen extends StatefulWidget {
 }
 
 class _LoginOptionScreenState extends State<LoginOptionScreen> {
-  List<String> imgPath = [
+  final List<String> imgPath = [
     "assets/images/login_bg.jpg",
     "assets/images/login2_bg.jpg",
     "assets/images/login3_bg.jpg",

@@ -1,6 +1,9 @@
+import 'package:travel/screens/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:travel/services/firebase_auth_social.dart';
 
 Widget elevatedButtonRow({@required context}) {
+  SocialAuthHelper helper = new SocialAuthHelper();
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
@@ -17,7 +20,12 @@ Widget elevatedButtonRow({@required context}) {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            helper.signInWithGoogle().whenComplete(() {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+            });
+          },
           child: Image.asset("assets/icons/google.png"),
         ),
       ),
@@ -35,7 +43,7 @@ Widget elevatedButtonRow({@required context}) {
             ),
           ),
           onPressed: () {},
-          child: Image.asset("assets/icons/twitter.png"),
+          child: Image.asset("assets/icons/email.png"),
         ),
       ),
       Container(
